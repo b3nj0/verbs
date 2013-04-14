@@ -11,6 +11,7 @@
 (defn list-verbs []
   (common/scaffold (for [[letter verbs] (grouped-verbs)]
                      [:div [:h5 letter]
-                      (for [[v tr] verbs]
-                        [:div (link-to (str "/verb/" (url-encode v)) v) " " [:span.muted tr]])
+                      [:dl.dl-horizontal
+                       (for [[v tr] verbs]
+                         (list [:dt (link-to (str "/verb/" (url-encode v)) v)] [:dd tr]))]
                       [:hr]])))
