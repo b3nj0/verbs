@@ -11,7 +11,7 @@
   "")
 
 (defn verb [name]
-  (@all name))
+  (@all (keyword name)))
 
 (defn verbs []
   (map (fn [v] [(:verb v) (:translation v)]) (vals @all)))
