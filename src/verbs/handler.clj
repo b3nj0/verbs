@@ -4,7 +4,8 @@
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
             [verbs.verbdb :as verbdb]
-            [verbs.view.verbs :as vwverbs]))
+            [verbs.view.verb :as vw-verb]
+            [verbs.view.verbs :as vw-verbs]))
 
 (defn init []
   (verbdb/init))
@@ -14,7 +15,8 @@
   (GET "/raw/verbs" [] (json-response (verbdb/verbs)))
   (GET "/raw/verb/:name" [name] (json-response (verbdb/verb (keyword name))))
   (GET "/raw/verbs/tenses" [] (json-response (verbdb/tenses)))
-  (GET "/verbs" [] (vwverbs/list-verbs))
+  (GET "/verbs" [] (vw-verbs/list-verbs))
+  (GET "/verb/:name" [name] (vw-verb/show-verb name))
   (route/resources "/")
   (route/not-found "Not Found"))
 
