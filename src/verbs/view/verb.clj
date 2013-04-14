@@ -1,0 +1,1 @@
+(ns verbs.view.verb)
