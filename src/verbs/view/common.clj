@@ -23,9 +23,9 @@
 (defn masthead []
   [:div.masthead
    [:ul.nav.nav-pills.pull-right
-    [:li.active (link-to "#" "Home")]
+    [:li.active (link-to "/" "Home")]
     [:li (link-to "/verbs" "Verbs")]
-    [:li (link-to "/tenses" "Tenses")]]
+    [:li (link-to "/test" "Test")]]
    [:h3.muted "Verbs"]])
 
 (defn- body [content]
