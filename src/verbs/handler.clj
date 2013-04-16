@@ -16,6 +16,7 @@
   (GET "/raw/verb/:name" [name] (json-response (verbdb/verb (keyword name))))
   (GET "/raw/verbs/tenses" [] (json-response (verbdb/tenses)))
   (GET "/verbs" [] (vw-verbs/list-verbs))
+  (GET "/verb/random-verb" [] (vw-verb/random-verb))
   (GET "/verb/:name" [name] (vw-verb/show-verb name))
   (route/resources "/")
   (route/not-found "Not Found"))

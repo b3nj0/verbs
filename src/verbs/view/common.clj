@@ -25,6 +25,7 @@
    [:ul.nav.nav-pills.pull-right
     [:li.active (link-to "/" "Home")]
     [:li (link-to "/verbs" "Verbs")]
+    [:li (link-to "/verb/random-verb" "Random")]
     [:li (link-to "/test" "Test")]]
    [:h3.muted "Verbs"]])
 

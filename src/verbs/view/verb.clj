@@ -59,3 +59,6 @@
                         (show-tense "subjonctif" (:subjonctif ts))
                         (show-tense "subjonctif passé" ((keyword "subjonctif passé") ts))
                         ]]])))
+
+(defn random-verb []
+  (show-verb (rand-nth (keys @verbdb/all))))
