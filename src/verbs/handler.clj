@@ -1,5 +1,6 @@
 (ns verbs.handler
   (:use [compojure.core]
+        [ring.util.codec]
         [ring.util.json-response])
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
@@ -13,11 +14,11 @@
 (defroutes app-routes
   (GET "/" [] "Hello World")
   (GET "/raw/verbs" [] (json-response (verbdb/verbs)))
-  (GET "/raw/verb/:name" [name] (json-response (verbdb/verb (keyword name))))
+  (GET "/raw/verb/:name" [name] (json-response (verbdb/verb (keyword (url-decode name)))))
   (GET "/raw/verbs/tenses" [] (json-response (verbdb/tenses)))
   (GET "/verbs" [] (vw-verbs/list-verbs))
   (GET "/verb/random-verb" [] (vw-verb/random-verb))
-  (GET "/verb/:name" [name] (vw-verb/show-verb name))
+  (GET "/verb/:name" [name] (vw-verb/show-verb (url-decode name)))
   (route/resources "/")
   (route/not-found "Not Found"))
 

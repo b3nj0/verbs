@@ -1,6 +1,6 @@
 (ns verbs.view.verbs
   (:use [hiccup.element]
-        [hiccup.util])
+        [ring.util.codec])
   (:require [verbs.verbdb :as verbdb]
             [verbs.view.common :as common]))
 
