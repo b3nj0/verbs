@@ -1,5 +1,5 @@
 (defproject verbs "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
+  :description "french verb training web application"
   :url "http://example.com/FIXME"
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [compojure "1.1.5"]
