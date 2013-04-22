@@ -14,7 +14,7 @@
 (defroutes app-routes
   (GET "/" [] "Hello World")
   (GET "/raw/verbs" [] (json-response (verbdb/verbs)))
-  (GET "/raw/verb/:name" [name] (json-response (verbdb/verb (keyword (url-decode name)))))
+  (GET "/raw/verb/:name" [name] (json-response (verbdb/verb (url-decode name))))
   (GET "/raw/verbs/tenses" [] (json-response (verbdb/tenses)))
   (GET "/verbs" [] (vw-verbs/list-verbs))
   (GET "/verb/random-verb" [] (vw-verb/random-verb))
