@@ -61,4 +61,4 @@
                         ]]])))
 
 (defn random-verb []
-  (show-verb (rand-nth (keys @verbdb/all))))
+  (show-verb (verbdb/random-verb)))

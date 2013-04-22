@@ -13,6 +13,9 @@
 (defn verb [name]
   (@all (keyword name)))
 
+(defn random-verb []
+  (rand-nth (keys @all)))
+
 (defn verbs []
   (map (fn [v] [(:verb v) (:translation v)]) (vals @all)))
 
