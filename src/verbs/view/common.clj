@@ -2,7 +2,7 @@
   (:use [hiccup.element]
         [hiccup.page]))
 
-(defn- head []
+(defn- head [headers]
   [:head
    [:meta {:charset "utf-8"}]
    [:title "verbs"]
@@ -18,6 +18,7 @@
    [:link {:rel "apple-touch-icon-precomposed" :sizes "72x72" :href "/ico/apple-touch-icon-72-precomposed.png"}]
    [:link {:rel "apple-touch-icon-precomposed" :href "/ico/apple-touch-icon-57-precomposed.png"}]
    [:link {:rel "shortcut icon" :href "/ico/favicon.png"}]
+   (when (:includes headers) (:includes headers))
    ])
 
 (defn masthead []
@@ -38,7 +39,10 @@
    (include-js "http://code.jquery.com/jquery.js"
                "/js/bootstrap.min.js")])
 
-(defn scaffold [content]
-  (html5
-   (head)
-   (body content)))
+(defn scaffold
+  ([headers content]
+     (html5
+      (head headers)
+      (body content)))
+  ([content]
+     (scaffold {} content)))
