@@ -2,13 +2,13 @@
   :description "french verb training web application"
   :url "http://example.com/FIXME"
   :source-paths ["src/clj"]
-  :dependencies [[org.clojure/clojure "1.4.0"]
+  :dependencies [[org.clojure/clojure "1.5.0"]
                  [compojure "1.1.5"]
                  [hiccup "1.0.3"]
                  [ring-json-response "0.2.0"]
                  [org.clojure/data.json "0.2.2"]]
   :plugins [[lein-cljsbuild "0.3.0"]
-            [lein-ring "0.8.2"]]
+            [lein-ring "0.8.5"]]
   :cljsbuild {:builds [
                {:source-paths ["src/cljs"]
                 :compiler {:output-to "resources/public/cljs/verb-test.js"
