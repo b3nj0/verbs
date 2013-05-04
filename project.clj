@@ -1,6 +1,7 @@
 (defproject verbs "0.1.0-SNAPSHOT"
   :description "french verb training web application"
   :url "http://example.com/FIXME"
+  :source-paths ["src/clj"]
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [compojure "1.1.5"]
                  [hiccup "1.0.3"]
