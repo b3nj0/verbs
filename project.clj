@@ -9,6 +9,7 @@
                  [org.clojure/data.json "0.2.2"]]
   :plugins [[lein-cljsbuild "0.3.0"]
             [lein-ring "0.8.5"]]
+  :hooks [leiningen.cljsbuild]
   :cljsbuild {:builds [
                {:source-paths ["src/cljs"]
                 :compiler {:output-to "resources/public/cljs/verb-test.js"
