@@ -7,7 +7,13 @@
                  [hiccup "1.0.3"]
                  [ring-json-response "0.2.0"]
                  [org.clojure/data.json "0.2.2"]]
-  :plugins [[lein-ring "0.8.2"]]
+  :plugins [[lein-cljsbuild "0.3.0"]
+            [lein-ring "0.8.2"]]
+  :cljsbuild {:builds [
+               {:source-paths ["src/cljs"]
+                :compiler {:output-to "resources/public/cljs/verb-test.js"
+                           :optimizations :whitespace
+                           :pretty-print true}}]}
   :ring {:init verbs.handler/init
          :handler verbs.handler/app}
   :profiles
