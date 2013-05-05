@@ -3,7 +3,7 @@
   (:require [verbs.view.common :as common]))
 
 (defn lnk [id lbl]
-  [:a.lnk {:id id :href (str "#" (name id))} lbl])
+  [:a {:id id :href (str "#" (name id))} lbl])
 
 (defn test []
   (common/scaffold {:includes (include-js "/cljs/verb-test.js")}
