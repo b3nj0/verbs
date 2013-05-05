@@ -1,6 +1,6 @@
 (ns verbs.test
   (:use-macros
-   [dommy.macros :only [sel1]])
+   [dommy.macros :only [sel1 sel]])
   (:require [goog.net.XhrIo :as xhr]
             [dommy.core :as dommy]))
 
@@ -23,6 +23,6 @@
   (xhr/send "/raw/verbs" (fn [e] (reset! verbs (.getResponseJson (.-target e)))))
 
   ;; wire up event handlers
-  (dommy/listen! (sel1 :#conjugate) :click (fn [e] (log "Clicked") (log e))))
+  (dommy/listen! [(sel1 :div.row) :.lnk] :click (fn [e] (log "Clicked") (log e))))
 
 (set! (.-onload js/window) init)
