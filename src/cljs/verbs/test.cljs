@@ -14,7 +14,20 @@
 (defn log [v]
   (.log js/console v))
 
+;; name the verb
 
+(defn play-name-the-verb []
+  (log "Name the verb"))
+
+;; conjugate the verb
+
+(defn play-conjugate-the-verb []
+  (log "Conjugate the verb"))
+
+;; select verbs + tenses
+
+(defn select-verbs-and-tenses []
+  (log "Select verbs + tenses"))
 
 ;; initialisation
 
@@ -23,6 +36,8 @@
   (xhr/send "/raw/verbs" (fn [e] (reset! verbs (.getResponseJson (.-target e)))))
 
   ;; wire up event handlers
-  (dommy/listen! [(sel1 :div.row) :.lnk] :click (fn [e] (log "Clicked") (log e))))
+  (dommy/listen! (sel1 :#conjugate-the-verb) :click (fn [e] (play-conjugate-the-verb)))
+  (dommy/listen! (sel1 :#name-the-verb) :click (fn [e] (play-name-the-verb)))
+  (dommy/listen! (sel1 :#select-verbs-and-tenses) :click (fn [e] (select-verbs-and-tenses))))
 
 (set! (.-onload js/window) init)

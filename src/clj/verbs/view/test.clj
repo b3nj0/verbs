@@ -12,7 +12,7 @@
                     [:div#settings.span3
                      [:ul.nav.nav-list
                       [:li.nav-header "Tests"]
-                      [:li (lnk :conjugate "Conjugate the verb")]
+                      [:li (lnk :conjugate-the-verb "Conjugate the verb")]
                       [:li (lnk :name-the-verb "Name the verb")]
                       [:li.nav-header "Settings"]
-                      [:li (lnk :select-verbs "Select verbs + tenses")]]]]))
+                      [:li (lnk :select-verbs-and-tenses "Select verbs + tenses")]]]]))
