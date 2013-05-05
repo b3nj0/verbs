@@ -15,5 +15,4 @@
                       [:li (lnk :conjugate "Conjugate")]
                       [:li (lnk :name-the-verb "Name the verb")]
                       [:li.nav-header "Settings"]
-                      [:li (lnk :select-verbs "Select verbs")]
-                      [:li (lnk :select-tenses "Select tenses")]]]]))
+                      [:li (lnk :select-verbs "Select verbs + tenses")]]]]))
