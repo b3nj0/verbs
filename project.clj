@@ -7,7 +7,7 @@
                  [hiccup "1.0.3"]
                  [ring-json-response "0.2.0"]
                  [org.clojure/data.json "0.2.2"]
-                 [prismatic/dommy "0.1.0"]]
+                 [prismatic/dommy "0.1.1-SNAPSHOT"]]
   :plugins [[lein-cljsbuild "0.3.0"]
             [lein-ring "0.8.5"]]
   :hooks [leiningen.cljsbuild]
