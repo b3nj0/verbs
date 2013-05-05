@@ -1,3 +1,8 @@
-(ns verbs.test)
+(ns verbs.test
+  (:require [goog.net.XhrIo :as xhr]))
 
-(js/alert "Hello there!")
+(defn display-results [e]
+  (let [json (.getResponseJson (.-target e))]
+    (.log js/console json)))
+
+(xhr/send "/raw/verbs" display-results)
