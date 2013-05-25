@@ -1,9 +1,8 @@
 (ns verbs.test
   (:use-macros
-   [dommy.macros :only [sel1 sel]])
-  (:require [goog.net.XhrIo :as xhr]
-            [dommy.core :as dommy]))
-
+   [dommy.macros :only [node sel1 sel text]])
+  (:require [dommy.core :as dommy]
+            [goog.net.XhrIo :as xhr]))
 
 ;; data
 
@@ -27,7 +26,10 @@
 ;; select verbs + tenses
 
 (defn select-verbs-and-tenses []
-  (log "Select verbs + tenses"))
+  (log "Select verbs + tenses")
+  (log (sel1 :#content))
+  (log (dommy/text (sel1 :#content)))
+  (dommy/set-text! (sel1 :#content) "HOLA"))
 
 ;; initialisation
 
