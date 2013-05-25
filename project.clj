@@ -11,11 +11,11 @@
   :plugins [[lein-cljsbuild "0.3.0"]
             [lein-ring "0.8.5"]]
   :hooks [leiningen.cljsbuild]
-  :cljsbuild {:builds [
+  :cljsbuild {:builds
+              {:main
                {:source-paths ["src/cljs"]
                 :compiler {:output-to "resources/public/cljs/verb-test.js"
-                           :optimizations :whitespace
-                           :pretty-print true}}]}
+                           :pretty-print true}}}}
   :ring {:init verbs.handler/init
          :handler verbs.handler/app}
   :profiles
