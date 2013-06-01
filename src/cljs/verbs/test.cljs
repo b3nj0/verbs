@@ -22,9 +22,12 @@
         verb-en (get verb 1)
         verb-fr (get verb 0)]
     (dommy/replace-contents! content [:form
-                                      [:label verb-en]
-                                      [:input {:type "text"}]
-                                      [:button.btn {:type "button"} "Submit"]])))
+                                      [:legend "Name the verb"]
+                                      [:fieldset
+                                       [:label.span3 [:span.pull-right verb-en]]
+                                       [:div.input-append
+                                        [:input.input-medium {:type "text"}]
+                                        [:button.btn {:type "submit"} "Go!"]]]])))
 
 ;; conjugate the verb
 
