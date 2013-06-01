@@ -21,8 +21,10 @@
         verb (rand-nth @verbs)
         verb-en (get verb 1)
         verb-fr (get verb 0)]
-    (log (str "Selected " verb-en))
-    (dommy/replace-contents! content [:div "Selected: " (str verb)])))
+    (dommy/replace-contents! content [:form
+                                      [:label verb-en]
+                                      [:input {:type "text"}]
+                                      [:button.btn {:type "button"} "Submit"]])))
 
 ;; conjugate the verb
 
