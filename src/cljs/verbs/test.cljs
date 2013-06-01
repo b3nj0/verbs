@@ -16,7 +16,10 @@
 ;; name the verb
 
 (defn play-name-the-verb []
-  (log "Name the verb"))
+  (log "Name the verb")
+  (let [content (sel1 :#content)
+        verb (rand-nth @verbs)]
+    (log (str "Selected " (str verb)))))
 
 ;; conjugate the verb
 
