@@ -19,7 +19,8 @@
   (log "Name the verb")
   (let [content (sel1 :#content)
         verb (rand-nth @verbs)]
-    (log (str "Selected " (str verb)))))
+    (log (str "Selected " (str verb)))
+    (dommy/replace-contents! content [:div "Selected: " (str verb)])))
 
 ;; conjugate the verb
 
