@@ -18,8 +18,10 @@
 (defn play-name-the-verb []
   (log "Name the verb")
   (let [content (sel1 :#content)
-        verb (rand-nth @verbs)]
-    (log (str "Selected " (str verb)))
+        verb (rand-nth @verbs)
+        verb-en (get verb 1)
+        verb-fr (get verb 0)]
+    (log (str "Selected " verb-en))
     (dommy/replace-contents! content [:div "Selected: " (str verb)])))
 
 ;; conjugate the verb
