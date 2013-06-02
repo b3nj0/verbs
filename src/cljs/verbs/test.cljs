@@ -8,17 +8,36 @@
 
 (def verbs (atom {}))
 
+; keep track of number correct answers from number of attempts
+(def score (atom [0 0]))
+
 ;; utils
 
 (defn log [v]
   (.log js/console v))
+
+;; score
+
+(defn reset-score []
+  (reset! score [0 0]))
+
+(defn score-plus [v]
+  "add v to the current score (and increase total goes by one)"
+  (swap! score (fn [[c t]] [(+ c v) (inc t)])))
+
+(defn score-as-% []
+  (let [[c t] @score]
+    (/ c t)))
 
 ;; name the verb
 
 (defn on-name-the-verb []
   (let [guess (dommy/value (sel1 "#guess"))
         target (dommy/value (sel1 "#target"))]
-    (log (str "Verb named " guess " expected " target))))
+    (log (str "Verb named " guess " expected " target))
+    (score-plus (if (= guess target) 1 0))
+    (log @score)
+    (log (score-as-%))))
 
 (defn play-name-the-verb []
   (log "Name the verb")
