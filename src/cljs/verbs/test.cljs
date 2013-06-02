@@ -15,6 +15,9 @@
 
 ;; name the verb
 
+(defn on-name-the-verb []
+  (log "Verb named"))
+
 (defn play-name-the-verb []
   (log "Name the verb")
   (let [content (sel1 :#content)
@@ -27,7 +30,8 @@
                                        [:label.span3 [:span.pull-right verb-en]]
                                        [:div.input-append
                                         [:input.input-medium {:type "text"}]
-                                        [:button.btn {:type "submit"} "Go!"]]]])))
+                                        [:button#go.btn {:type "submit"} "Go!"]]]])
+    (dommy/listen! (sel1 :#go) :click (fn [e] (on-name-the-verb)))))
 
 ;; conjugate the verb
 
