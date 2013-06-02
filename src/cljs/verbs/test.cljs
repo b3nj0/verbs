@@ -30,6 +30,7 @@
                                       [:fieldset
                                        [:label.span3 [:span.pull-right verb-en]]
                                        [:div.input-append
+                                        [:input#target {:type "hidden"} verb-fr]
                                         [:input#guess.input-medium {:type "text"}]
                                         [:button#go.btn {:type "submit"} "Go!"]]]])
     (dommy/listen! (sel1 :#go) :click (fn [e] (on-name-the-verb)))))
