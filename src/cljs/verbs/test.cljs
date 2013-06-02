@@ -16,7 +16,8 @@
 ;; name the verb
 
 (defn on-name-the-verb []
-  (log "Verb named"))
+  (let [guess (dommy/value (sel1 "#guess"))]
+    (log (str "Verb named " guess))))
 
 (defn play-name-the-verb []
   (log "Name the verb")
@@ -29,7 +30,7 @@
                                       [:fieldset
                                        [:label.span3 [:span.pull-right verb-en]]
                                        [:div.input-append
-                                        [:input.input-medium {:type "text"}]
+                                        [:input#guess.input-medium {:type "text"}]
                                         [:button#go.btn {:type "submit"} "Go!"]]]])
     (dommy/listen! (sel1 :#go) :click (fn [e] (on-name-the-verb)))))
 
