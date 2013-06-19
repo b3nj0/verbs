@@ -27,7 +27,7 @@
 
 (defn score-as-% []
   (let [[c t] @score]
-    (/ c t)))
+    (* 100 (/ c t))))
 
 ;; name the verb
 
