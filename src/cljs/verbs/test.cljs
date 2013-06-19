@@ -41,6 +41,10 @@
     (log (score-as-%))
     (if correct? (play-name-the-verb) nil)))
 
+(defn on-skip-the-verb []
+  (score-plus 0)
+  (play-name-the-verb))
+
 (defn play-name-the-verb []
   (log "Name the verb")
   (let [content (sel1 :#content)
@@ -54,9 +58,11 @@
                                        [:div.input-append
                                         [:input#target {:type "hidden" :value verb-fr}]
                                         [:input#guess.input-medium {:type "text"}]
-                                        [:button#go.btn {:type "submit"} "Go!"]]]])
+                                        [:button#go.btn {:type "submit"} "Go!"]
+                                        [:button#skip.btn "Skip"]]]])
     (.focus (sel1 :#guess))
-    (dommy/listen! (sel1 :#go) :click (fn [e] (on-name-the-verb)))))
+    (dommy/listen! (sel1 :#go) :click (fn [e] (on-name-the-verb)))
+    (dommy/listen! (sel1 :#skip) :click (fn [e] (on-skip-the-verb)))))
 
 ;; conjugate the verb
 
