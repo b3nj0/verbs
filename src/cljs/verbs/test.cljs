@@ -38,7 +38,8 @@
     (log (str "Verb named " guess " expected " target))
     (score-plus (if correct? 1 0))
     (log @score)
-    (log (score-as-%))))
+    (log (score-as-%))
+    (if correct? (play-name-the-verb) nil)))
 
 (defn play-name-the-verb []
   (log "Name the verb")
