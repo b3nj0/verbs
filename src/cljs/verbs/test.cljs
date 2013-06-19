@@ -33,9 +33,10 @@
 
 (defn on-name-the-verb []
   (let [guess (dommy/value (sel1 "#guess"))
-        target (dommy/value (sel1 "#target"))]
+        target (dommy/value (sel1 "#target"))
+        correct? (= guess target)]
     (log (str "Verb named " guess " expected " target))
-    (score-plus (if (= guess target) 1 0))
+    (score-plus (if correct? 1 0))
     (log @score)
     (log (score-as-%))))
 
