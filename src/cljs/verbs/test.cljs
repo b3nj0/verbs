@@ -55,6 +55,7 @@
                                         [:input#target {:type "hidden" :value verb-fr}]
                                         [:input#guess.input-medium {:type "text"}]
                                         [:button#go.btn {:type "submit"} "Go!"]]]])
+    (.focus (sel1 :#guess))
     (dommy/listen! (sel1 :#go) :click (fn [e] (on-name-the-verb)))))
 
 ;; conjugate the verb
