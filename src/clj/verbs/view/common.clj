@@ -36,7 +36,7 @@
     (masthead)
     [:hr]
     content]
-   (include-js "http://code.jquery.com/jquery.js"
+   (include-js "/js/jquery-1.9.1.min.js"
                "/js/bootstrap.min.js")])
 
 (defn scaffold
