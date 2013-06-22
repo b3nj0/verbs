@@ -51,15 +51,17 @@
         verb (rand-nth @verbs)
         verb-en (get verb 1)
         verb-fr (get verb 0)]
-    (dommy/replace-contents! content [:form
-                                      [:legend "Name the verb"]
-                                      [:fieldset
-                                       [:label.span3 [:span.pull-right verb-en]]
-                                       [:div.input-append
-                                        [:input#target {:type "hidden" :value verb-fr}]
-                                        [:input#guess.input-medium {:type "text"}]
-                                        [:button#go.btn {:type "submit"} "Go!"]
-                                        [:button#skip.btn "Skip"]]]])
+    (dommy/replace-contents! content [:div
+                                      [:form
+                                       [:legend "Name the verb"]
+                                       [:fieldset
+                                        [:label.span3 [:span.pull-right verb-en]]
+                                        [:div.input-append
+                                         [:input#target {:type "hidden" :value verb-fr}]
+                                         [:input#guess.input-medium {:type "text"}]
+                                         [:button#go.btn {:type "submit"} "Go!"]
+                                         [:button#skip.btn "Skip"]]]]
+                                      [:div#score (str (score-as-%) "%")]])
     (.focus (sel1 :#guess))
     (dommy/listen! (sel1 :#go) :click (fn [e] (on-name-the-verb)))
     (dommy/listen! (sel1 :#skip) :click (fn [e] (on-skip-the-verb)))))
