@@ -39,7 +39,9 @@
     (score-plus (if correct? 1 0))
     (log @score)
     (log (score-as-%))
-    (if correct? (play-name-the-verb) nil)))
+    (if correct?
+      (play-name-the-verb)
+      (dommy/set-text! (sel1 :#score) (str (score-as-%) "%")))))
 
 (defn on-skip-the-verb []
   (score-plus 0)
