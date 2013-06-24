@@ -30,7 +30,9 @@
     (* 100 (/ c t))))
 
 (defn formatted-score []
-  (str (.toFixed (score-as-%) 0) "%"))
+  (let [[c t] @score
+        p (score-as-%)]
+    (str c "/" t " [" (.toFixed p 0) "%]")))
 
 ;; name the verb
 
