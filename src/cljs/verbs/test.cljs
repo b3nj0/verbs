@@ -29,6 +29,9 @@
   (let [[c t] @score]
     (* 100 (/ c t))))
 
+(defn formatted-score []
+  (str (.toFixed (score-as-%) 0) "%"))
+
 ;; name the verb
 
 (defn on-name-the-verb []
@@ -41,7 +44,7 @@
     (log (score-as-%))
     (if correct?
       (play-name-the-verb)
-      (dommy/set-text! (sel1 :#score) (str (score-as-%) "%")))))
+      (dommy/set-text! (sel1 :#score) (formatted-score)))))
 
 (defn on-skip-the-verb []
   (score-plus 0)
@@ -63,7 +66,7 @@
                                          [:input#guess.input-medium {:type "text"}]
                                          [:button#go.btn {:type "submit"} "Go!"]
                                          [:button#skip.btn "Skip"]]]]
-                                      [:div#score (str (score-as-%) "%")]])
+                                      [:div#score (formatted-score)]])
     (.focus (sel1 :#guess))
     (dommy/listen! (sel1 :#go) :click (fn [e] (on-name-the-verb)))
     (dommy/listen! (sel1 :#skip) :click (fn [e] (on-skip-the-verb)))))
