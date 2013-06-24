@@ -38,10 +38,8 @@
   (let [guess (dommy/value (sel1 "#guess"))
         target (dommy/value (sel1 "#target"))
         correct? (= guess target)]
-    (log (str "Verb named " guess " expected " target))
     (score-plus (if correct? 1 0))
-    (log @score)
-    (log (score-as-%))
+    (log (str "Verb named '" guess "' expected '" target "' new score '" (score-as-%) "'"))
     (if correct?
       (play-name-the-verb)
       (dommy/set-text! (sel1 :#score) (formatted-score)))))
