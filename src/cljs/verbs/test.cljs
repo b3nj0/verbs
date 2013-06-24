@@ -61,12 +61,12 @@
                                        [:legend "Name the verb"]
                                        [:fieldset
                                         [:label.span3 [:span.pull-right verb-en]]
-                                        [:div.input-append
+                                        [:div.span4.input-append
                                          [:input#target {:type "hidden" :value verb-fr}]
-                                         [:input#guess.input-medium {:type "text"}]
+                                         [:input#guess {:type "text"}]
                                          [:button#go.btn {:type "submit"} "Go!"]
                                          [:button#skip.btn "Skip"]]]]
-                                      [:div#score (formatted-score)]])
+                                      [:div#score.offset5 (formatted-score)]])
     (.focus (sel1 :#guess))
     (dommy/listen! (sel1 :#go) :click (fn [e] (on-name-the-verb)))
     (dommy/listen! (sel1 :#skip) :click (fn [e] (on-skip-the-verb)))))
